@@ -41,5 +41,11 @@ fn binary_search(set: Vec<i32>, target: i32) -> (Option<usize>, i32) {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let set_numbers = create_set_numbers();
+    print!("Write target number: ");
+    let target_number: i32 = read!();
+
+    let test_binary_search = binary_search(set_numbers, target_number);
+
+    println!("{:?}", test_binary_search);
 }
