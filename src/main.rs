@@ -16,6 +16,30 @@ fn create_set_numbers() -> Vec<i32> {
     set_of_numbers
 }
 
+fn binary_search(set: Vec<i32>, target: i32) -> (Option<usize>, i32) {
+    let mut low = 0;
+    let mut high = set.len() - 1;
+
+    let mut attempts: i32 = 0;
+
+    while low <= high {
+        let mid = (high + low) / 2;
+
+        if set[mid] == target {
+            attempts = attempts + 1;
+            return (Some(mid), attempts);
+        } else if set[mid] < target {
+            attempts = attempts + 1;
+            low = mid + 1;
+        } else {
+            attempts = attempts + 1;
+            high = mid - 1;
+        }
+    }
+
+    (None, attempts)
+}
+
 fn main() {
     println!("Hello, world!");
 }
